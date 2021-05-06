@@ -1,6 +1,6 @@
 .moviePoster{
     /* width: 90%; */
-    height: 40vh;
+    height: 25vh;
     width: auto;
 }
 .movieCard{
@@ -9,33 +9,43 @@
 }
 .movieCard img:hover{
     cursor: pointer;
-    /* border: 4px solid #aab1bb; */
     transform: scale(1.1);
-    transition: 0.4s ease-in-out;
+    /* border: 2px solid white; */
+    transition: all 0.4s ease-in-out;
     box-shadow: 9px 16px 16px 6px #01010485;
     filter: brightness(1.2);
 }
 .movieCard img{
     border-radius: 10px;
     box-shadow: 6px 12px 9px 4px #01010447;
-    transition: 0.4s ease-in-out;
+    transition:all 0.4s ease-in-out;
     border-radius: 30px;
-    border: none;
+    border: 0px;
 }
 
 .movieCard2{
     margin: 20px;
+    transition:all 0.4s ease-in-out;
     position: relative;
 }
-.movieCard2:hover{
-    cursor: pointer;
+ .cardoverlay {
+    pointer-events: auto;
+    border-radius: 6px;
+
 }
+   .movieCard2:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        filter: brightness(1.3);
+    }
 .movieCard2 img{
   border-radius: 6px;
 }
 .moviePoster2{
     height: 25vh;
     width: auto;
+  border-radius: 6px;
+  transition: 0.4s ease-in-out;
 }
 .cardText {
     position: absolute;
@@ -59,4 +69,5 @@
 .popular {
     margin-left: 30px;
 }
+
 
