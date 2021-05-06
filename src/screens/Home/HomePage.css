@@ -1,0 +1,16 @@
+.homeContainer{
+    background-color: black;
+}
+.bannerSection {
+    background-image: linear-gradient( to top, rgba(1, 11, 25, 1), rgba(1, 11, 25, 0.6)), url('../../Images/banner.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 60vh;
+}
+.bannerTextContainer {
+    width: 60%;
+}
+.recentContainer{
+    
+}

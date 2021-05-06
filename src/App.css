@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+:root {
+    --black: #000000;
+    --white: #ffff;
+    /* Main Colors */
+    --bgcolor:#010b19;
+    --textWhite: #0e0e0d;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .white30{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    color: white;
+    font-weight: 500;
   }
-  to {
-    transform: rotate(360deg);
+  .sub20 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #ffffff91;
+    font-weight: 300;
+    line-height: 32px;
+    letter-spacing: 0.8px;
   }
-}
+  .backgroundColor{
+    background-color: var(--bgcolor);
+  }
+  .xzcEF {
+    display: none!important;
+  }
+  .cGKbZh {
+    box-shadow: none!important ;
+    background-color: var(--bgcolor)!important;
+  }
+  .cGKbZh:hover:enabled, .cGKbZh:focus:enabled {
+    background:none!important;
+  }
+  .ehkxHv:disabled {
+    visibility: hidden!important;
+  }
+  .listHeading {
+    margin-left: 5rem;
+  }
+  /* .container-custom{
+    padding-left: 5rem;
+    padding-right: 5rem;
+  } */
+  .white25{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: 500;
+    letter-spacing: 0.8px
+  }
+  .tiny {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 300;
+  }
