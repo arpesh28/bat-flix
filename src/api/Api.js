@@ -2,15 +2,18 @@ const api = 'https://api.themoviedb.org/3'
 const api_key = process.env.REACT_APP_API
 
 export const searchMovie = ({search, page}) => {
-    return fetch(`${api}/movie/latest?api_key=${api_key}&language=en-US&page=${page}&query=${search}`)
+    let searchLink
+    if(search) {
+     searchLink = `${api}/search/movie?api_key=${api_key}&language=en-US&page=${page}&query=${search}`
+    } else {
+     searchLink = `${api}/movie/popular?api_key=${api_key}&language=en-US&page=${page}`
+    }
+    return fetch(searchLink)
     .then(data=>data.json())
     .then(data=>{
-        console.log('Search Movie:', data)
         return data
     })
-    .catch((e)=>{
-        return console.log("error:",e)
-    }) 
+   
 }
 
  export const getrecent = () => {
@@ -28,12 +31,12 @@ export const getPopular = () => {
    return fetch(`${api}/movie/popular?api_key=${api_key}&language=en-US&page=1`)
    .then(data=>data.json())
    .then(data=>{
-       console.log(data)
        return data
    })
    .catch((e)=>{
        return console.log("error:",e)
    }) 
 }
+
 
 

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {Form, Button} from 'react-bootstrap'
-// External Modules
+
+// Modules
 import Carousel from 'react-elastic-carousel';
+import { useHistory } from "react-router-dom";
 
 // Styles
 import './HomePage.css'
@@ -17,8 +19,12 @@ import Header from '../../components/header/Header'
 import Movie from '../../components/movie-card/Movie'
 
 function HomePage() {
+    const history = useHistory();
+
     const [counter, setCounter] = useState(0)
     const [grid, setGrid] = useState(1)
+    const [searchHome, setSearchHome] = useState('')
+
     // Redux
     const {recentInfo, popularInfo} = useSelector((state)=>{return state.movie})
     const dispatch = useDispatch();
@@ -32,7 +38,6 @@ function HomePage() {
 
     const {results} = recentInfo || {}
 
-    console.log(recentInfo)
     const breakPoints = [
         { width: 1, itemsToShow: 2 },
         { width: 550, itemsToShow: 3},
@@ -50,9 +55,19 @@ function HomePage() {
                 <h2 className="white30 text-center">Discover Movies</h2>
                     <h4 className="sub20 text-center">BatFlix is an upcoming movie finder on demand service. A platform made with visually stunning design of our own. Stay Home & Stay Safe.</h4>
                     <Form className="d-flex flex-row align-items-center mt-5">
-                        <Form.Control type="text" placeholder="Search for Movie" className="mr-sm-2 searchbox" />
+                        <Form.Control type="text" placeholder="Search for Movie" className="mr-sm-2 searchbox"
+                        onChange={(e)=>{
+                            setSearchHome(e.target.value)
+                        }}
+                        />
                         <Button variant="outline-info"
                         className="searchbtn"
+                        onClick={()=>{
+                            history.push({
+                                pathname: '/search',
+                                state: { searchHome: searchHome  }
+                              })
+                        }}
                         >Search</Button>
                     </Form>
             </div>
