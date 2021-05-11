@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import {Form, Button} from 'react-bootstrap'
 
 // Modules
-import Carousel from 'react-elastic-carousel';
 import { useHistory } from "react-router-dom";
 
 // Styles
@@ -20,9 +19,7 @@ import Movie from '../../components/movie-card/Movie'
 
 function Search({location}) {
     const history = useHistory();
-
-    const {state} = location || {};
-    const {searchHome} = state || {};
+    const {searchHome} = location.state || {};
     const [search, setSearch] =useState(searchHome)
     const [page, setPage] = useState(1)
 
@@ -32,18 +29,17 @@ function Search({location}) {
    
     useEffect(async ()=> {
         if(search) {
-            console.log('')
-        } else {
-        const searchInfo = await searchMovie({search})
+            const searchInfo = await searchMovie({search})
         dispatch(searchSuccess(searchInfo))
+        } else {
+            console.log('')
         }
     }, [])
 
     const onChange = async (e) => {
         setTimeout(()=>{
          setSearch(e.target.value)
-        }, 1500)
-        console.log(search)
+        }, 100)
         const searchInfo = await searchMovie({search,page})
         dispatch(searchSuccess(searchInfo))
     }
@@ -89,6 +85,7 @@ function Search({location}) {
                                             likes={item.vote_count}
                                             title={item.title}
                                             popularity={item.popularity}
+                                            id={item.id}
                                             />
                                    </div>
                                 )

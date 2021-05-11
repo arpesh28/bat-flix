@@ -36,8 +36,7 @@ function HomePage() {
         dispatch(getPopularSuccess(popularInfo))
     }, [])
 
-    const {results} = recentInfo || {}
-
+    console.log(recentInfo, popularInfo)
     const breakPoints = [
         { width: 1, itemsToShow: 2 },
         { width: 550, itemsToShow: 3},
@@ -87,7 +86,9 @@ function HomePage() {
                                         className="col-12 col-xs-6 col-sm-6 col-md-3 col-lg-1 col-xl-1 d-flex justify-content-center">
                                            <Movie  
                                                 type="latest"
-                                                image={item.poster_path} />
+                                                image={item.poster_path} 
+                                                id={item.id}
+                                                />
                                        </div>
                                 )
                         })}
@@ -110,6 +111,8 @@ function HomePage() {
                                             likes={item.vote_count}
                                             title={item.title}
                                             popularity={item.popularity}
+                                            id={item.id}
+
                                             />
                                    </div>
                                 )

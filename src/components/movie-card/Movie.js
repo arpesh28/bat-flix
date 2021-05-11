@@ -13,12 +13,20 @@ function Header ({
     counter,
     likes,
     title,
-    popularity
+    popularity,
+    id
 }) {
+  const history = useHistory();
+
     return (
       <>
       {type=='latest' ?
-      <div className="movieCard d-flex justify-content-center align-items-center">
+      <div className="movieCard d-flex justify-content-center align-items-center" onClick={()=>{
+        history.push({
+          pathname: '/movedetails',
+          state: {  id  }
+        })
+      }}>
         <img src={`https://image.tmdb.org/t/p/w500/${image}`} className="moviePoster" />
   </div>
   :
