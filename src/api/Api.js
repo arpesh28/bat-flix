@@ -58,6 +58,16 @@ export const getDetails = ({id}) => {
         return console.log("error:",e)
     }) 
  }
+ export const getVideos = ({id}) => {
+    return fetch(`${api}/movie/${id}/videos?api_key=${api_key}&language=en-US`)
+    .then(data=>data.json())
+    .then(data=>{
+        return data
+    })
+    .catch((e)=>{
+        return console.log("error:",e)
+    }) 
+ }
 
 
 

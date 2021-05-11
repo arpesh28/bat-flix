@@ -14,7 +14,8 @@ function Header ({
     likes,
     title,
     popularity,
-    id
+    id,
+    
 }) {
   const history = useHistory();
 
@@ -30,7 +31,12 @@ function Header ({
         <img src={`https://image.tmdb.org/t/p/w500/${image}`} className="moviePoster" />
   </div>
   :
-      <div className="movieCard2 d-flex justify-content-center align-items-center">
+      <div className="movieCard2 d-flex justify-content-center align-items-center" onClick={()=>{
+        history.push({
+          pathname: '/movedetails',
+          state: {  id  }
+        })
+      }}>
         <div className="cardoverlay"></div>
         <img src={`https://image.tmdb.org/t/p/w500/${image}`} className="moviePoster2" /> 
         <div className="cardText">

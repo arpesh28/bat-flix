@@ -69,6 +69,12 @@
     background-color: #eac430!important;
     border-color: none!important;
 }
+.trailerbtn:acitve{
+    background-color: #eac430;
+    border: none;
+    box-shadow: none;
+    color: #010b19;
+}
 .rating{
     font-family: 'Montserrat';
     font-size: 16px;

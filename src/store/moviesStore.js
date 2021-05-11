@@ -7,7 +7,8 @@ export const movieSlice = createSlice({
     popularInfo: null,
     searchInfo: null,
     movieInfo: null,
-    similarInfo: null
+    similarInfo: null,
+    videos: null
   },
   reducers: {
     getRecentSuccess: (state, action) => {
@@ -40,6 +41,12 @@ export const movieSlice = createSlice({
             similarInfo: action.payload
         }
       },
+      getvideosSuccess: (state, action) => {
+        return {
+            ...state,
+            videos: action.payload
+        }
+      },
   },
 });
 
@@ -48,6 +55,7 @@ export const {
     searchSuccess,
     getPopularSuccess,
     getMovieDetailsSuccess,
-    getSimilarMoviesSuccess
+    getSimilarMoviesSuccess,
+    getvideosSuccess
 } = movieSlice.actions
 export default movieSlice.reducer

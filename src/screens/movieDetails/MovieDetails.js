@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Modal } from 'react-bootstrap';
 
 // Modules
 import Carousel from 'react-elastic-carousel';
@@ -10,7 +10,7 @@ import './MovieDetails.css';
 import '../../App.css';
 
 // Images
-import star from '../../Images/star.svg'
+import star from '../../Images/star.svg';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -20,6 +20,8 @@ import { getDetails, getSimilar } from '../../api/Api';
 // Components
 import Header from '../../components/header/Header';
 import Movie from '../../components/movie-card/Movie';
+import Trailer from '../../components/trailer/Trailer'
+
 
 function MovieDetails({
     location
@@ -29,8 +31,10 @@ function MovieDetails({
   const history = useHistory();
   const {id} = location.state || {}
 
+  // States
   const [counter, setCounter] = useState(0);
   const [grid, setGrid] = useState(1);
+  const [showModal, setShowModal] = useState(false);
 
   // Redux
   const { movieInfo, similarInfo} = useSelector((state) => {
@@ -80,7 +84,10 @@ function MovieDetails({
             )
           })}
           </div>
-          <Button className="trailerbtn">
+          <Button className="trailerbtn"
+          onClick={()=>{
+            setShowModal(true)}}
+          >
             Watch trailer
           </Button>
         </div>
@@ -110,6 +117,14 @@ function MovieDetails({
                 );
               })}
           </Carousel>
+          {showModal&&
+           <Trailer
+           showModal={showModal}
+           onclose={()=>{setShowModal(false)}}
+           setShowModal={setShowModal}
+           id={id}
+           />
+          }
         </div>
       </div>
     </div>
